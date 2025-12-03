@@ -3,9 +3,18 @@ export default function Card({ attrici }) {
 
   let premi = "";
   if (typeof awards === "string") {
-    premi = awards;
+    if (awards === "None") {
+      premi = "nessun premio vinto";
+    } else {
+      premi = awards;
+    }
   } else if (Array.isArray(awards)) {
-    premi = awards.join(", ");
+    const stringaPremi = awards.join(", ");
+    if (stringaPremi === "None") {
+      premi = "nessun premio vinto";
+    } else {
+      premi = stringaPremi;
+    }
   }
 
   return (
@@ -18,8 +27,8 @@ export default function Card({ attrici }) {
           <p className="card-text fs-5">
             {birth_year} {nationality}
           </p>
-          <p className="card-text fs-5">{biography}</p>
-          <p className="card-text fs-5">{premi}</p>
+          <p className="card-text fs-4">{biography}</p>
+          <p className="card-text fs-4">{premi}</p>
         </div>
       </div>
     </div>
