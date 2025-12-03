@@ -5,7 +5,7 @@ export default function Card({ attrici }) {
   if (typeof awards === "string") {
     premi = awards;
   } else if (Array.isArray(awards)) {
-    premi = awards.join(",");
+    premi = awards.join(", ");
   }
 
   return (
