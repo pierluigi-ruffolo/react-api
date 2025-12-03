@@ -1,5 +1,13 @@
 export default function Card({ attrici }) {
   const { name, birth_year, image, biography, nationality, awards } = attrici;
+
+  let premi = "";
+  if (typeof awards === "string") {
+    premi = awards;
+  } else if (Array.isArray(awards)) {
+    premi = awards.join(",");
+  }
+
   return (
     <div className="col">
       <div className="card h-100">
@@ -11,7 +19,7 @@ export default function Card({ attrici }) {
             {birth_year} {nationality}
           </p>
           <p className="card-text fs-5">{biography}</p>
-          <p className="card-text fs-5">{awards}</p>
+          <p className="card-text fs-5">{premi}</p>
         </div>
       </div>
     </div>
