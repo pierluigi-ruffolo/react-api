@@ -35,6 +35,7 @@ function App() {
       .get("https://lanciweb.github.io/demo/api/actors/")
       .then((risposta) => {
         setRispostaApiAttori(risposta.data);
+        console.log(risposta.data);
         setrispostaAttori(true);
       });
   }
