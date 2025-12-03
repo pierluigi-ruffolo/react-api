@@ -9,25 +9,23 @@ function App() {
 
   const [rispostaAPiAttori, setRispostaApiAttori] = useState([]);
 
+  const [attoriAttrici, setAttoriAttrici] = useState([]);
+
   useEffect(() => {
-    fetchAPiAttrici();
-    fetchApiAttori();
+    fetchApi();
   }, []);
 
-  function fetchAPiAttrici() {
+  function fetchApi() {
     axios
       .get("https://lanciweb.github.io/demo/api/actresses/")
       .then((risposta) => {
-        console.log(risposta.data);
         setRispostaAPiAttrici(risposta.data);
+        console.log(risposta.data);
       });
-  }
 
-  function fetchApiAttori() {
     axios
       .get("https://lanciweb.github.io/demo/api/actors/")
       .then((risposta) => {
-        console.log(risposta.data);
         setRispostaApiAttori(risposta.data);
       });
   }
